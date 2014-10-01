@@ -1,0 +1,36 @@
+#include <os2.h>
+#include "superclass.h"
+
+
+DLGTEMPLATE 100 LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Bar control test", 100, 12, 6, 210, 66, WS_VISIBLE,
+            FCF_SYSMENU | FCF_TITLEBAR | FCF_MINBUTTON | FCF_TASKLIST
+        PRESPARAMS PP_FONTNAMESIZE, "9.WarpSans"
+    BEGIN
+        CONTROL         "This won't get displayed", 101, 2, 2, 4, 60, WC_BAR,
+                        WS_GROUP | WS_VISIBLE | BARS_VERTICAL
+        CONTROL         "", 102, 12, 2, 0, 60, WC_BAR,
+                        WS_GROUP | WS_VISIBLE | BARS_VERTICAL | BARS_RAISED |
+                        BARS_AUTOSIZE
+        CONTROL         "", 103, 20, 62, 186, 2, WC_BAR, 
+                        WS_GROUP | WS_VISIBLE
+        CONTROL         "~Raised bar:", 104, 20, 52, 186, 10, WC_BAR, 
+                        WS_GROUP | WS_VISIBLE | DT_MNEMONIC | BARS_RAISED
+        CONTROL         "~Left aligned:", 105, 20, 42, 186, 10, WC_BAR, 
+                        WS_GROUP | WS_VISIBLE | DT_MNEMONIC
+        CONTROL         "~Centered (DISABLED):", 106, 20, 32, 186, 10,
+                        WC_BAR, WS_DISABLED | WS_GROUP | WS_VISIBLE |
+                        DT_MNEMONIC | BARS_CENTER
+        CONTROL         "~Right aligned (no mnemonic)!", 107, 20, 22, 186, 10,
+                        WC_BAR, WS_GROUP | WS_VISIBLE | BARS_RIGHT
+        CONTROL         "~Centered, thick, raised:", 108, 20, 12, 186, 10,
+                        WC_BAR, WS_GROUP | WS_VISIBLE | DT_MNEMONIC |
+                        BARS_RAISED | BARS_THICK | BARS_CENTER
+        CONTROL         "Centere~d (thickness set via CTLDATA)",
+                        109, 20, 2, 186, 10, WC_BAR, BARS_AUTOSIZE | 
+                        WS_GROUP | WS_VISIBLE | DT_MNEMONIC | BARS_CENTER
+                        CTLDATA 6                  
+                        
+    END
+END
